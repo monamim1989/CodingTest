@@ -20,4 +20,6 @@ I am using an input array of ranges (assuming lowerBound <= upperBound), checkin
  Previous range does not overlap current range<br>
  Based on these 3 cases, I have decided further steps. At the end, after iteration over all ranges is completed, I have converted ArrayList to int[][] array to return output.
  
+ # TEST CASES
+ I am also adding a separate file where I have mentioned some test cases covering regular and corner cases. Each test case has a relevant comment which mentions what type of case it is covering.
 
