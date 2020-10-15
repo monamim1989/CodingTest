@@ -5,20 +5,24 @@ import java.util.List;
 public class Solution {
 
 	public static int[][] mergeRange(int[][] bounds){
+		//Input is Empty!!
 		if (bounds.length==0) {
 			return new int[0][];
 		}
+		//Sorting input array by ascending lower bound
 		Arrays.sort(bounds,(a,b)->a[0]-b[0]);
-		List<int[]> list = new ArrayList<>();
-		int[] prev = bounds[0];
+		
+		List<int[]> list = new ArrayList<>(); //List to store output
+		int[] prev = bounds[0]; //Previous range
 		list.add(prev);
+		
 		for (int i = 1; i < bounds.length; i++) {
-			int[] curr = bounds[i];
-			if (prev[1]>=curr[0] && prev[1]<=curr[1]) {
+			int[] curr = bounds[i]; //Current range
+			if (prev[1]>=curr[0] && prev[1]<=curr[1]) { //Partial overlap
 				prev[1] = curr[1];
-			}else if (prev[1]>=curr[1]) {
+			}else if (prev[1]>=curr[1]) { //Previous contains current range
 				continue;
-			}else {
+			}else { //No overlap
 				int[] newBound = new int[] {curr[0],curr[1]};
 				list.add(newBound);
 				prev = newBound;
